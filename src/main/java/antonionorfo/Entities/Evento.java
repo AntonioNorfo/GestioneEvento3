@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table
 public class Evento {
     @Column(name = "titolo_evento", nullable = false)
@@ -43,6 +44,9 @@ public class Evento {
         this.location = location;
         this.partecipazioni = partecipazioni;
         this.titolo = titolo;
+    }
+
+    public Evento(String antonio, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, Location location) {
     }
 
     public String getTitolo() {
